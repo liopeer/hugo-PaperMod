@@ -1,6 +1,7 @@
-{{ $notebook := .Get 0 }}
-{{ print "Hello World" }}
-{{ range .Page.Resources.Match $notebook }}
+<!-- adopted from https://github.com/sad-pixel/ishan.page -->
+{{ $notebook := .Get "notebook" }}
+{{ range .Page.Resources.Match $notebook }} 
+<a href="{{.RelPermalink}}" download>🗒️ Download ({{ $notebook }})</a>
 {{ $content := .Content | transform.Unmarshal }}
 {{ $cells := $content.cells }}
 {{ range $cells }}
@@ -12,7 +13,6 @@
 <!-- For Code Cells -->
 {{ if eq .cell_type "code" }}
 ```python
-Hello World!
 {{ range .source }}{{ . | safeHTML }}{{ end }}
 ```
 {{ if gt (len .outputs) 0 }}
