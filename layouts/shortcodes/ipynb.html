@@ -1,7 +1,9 @@
 <!-- adopted from https://github.com/sad-pixel/ishan.page -->
 {{ $notebook := .Get "notebook" }}
 {{ range .Page.Resources.Match $notebook }} 
-<a href="{{.RelPermalink}}" download>🗒️ Download ({{ $notebook }})</a>
+<a href="{{.RelPermalink}}" class="btn" download>
+    <button>🗒️ Download ({{ $notebook }})</button>
+</a>
 {{ $content := .Content | transform.Unmarshal }}
 {{ $cells := $content.cells }}
 {{ range $cells }}
