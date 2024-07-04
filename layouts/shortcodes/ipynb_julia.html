@@ -14,7 +14,7 @@
 
 <!-- For Code Cells -->
 {{ if eq .cell_type "code" }}
-```python
+```julia
 {{ range .source }}{{ . | safeHTML }}{{ end }}
 ```
 {{ if gt (len .outputs) 0 }}
