@@ -2,7 +2,7 @@
 {{ $notebook := .Get "notebook" }}
 {{ range .Page.Resources.Match $notebook }} 
 <a href="{{.RelPermalink}}" class="button" download>
-    <button>💾 Download this Article as a Jupyter Notebook</button>
+    <button>⬇️ Download this Article as a Jupyter Notebook</button>
 </a>
 {{ $content := .Content | transform.Unmarshal }}
 {{ $cells := $content.cells }}
